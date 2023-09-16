@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<h1>Episodes</h1>
+<div id="episodes">
+  <% @episodes.each do |episode| %>
+    <% if episode.user == current_user %>
+      <%= render episode %>
+      <p>
+        <%= link_to "Event detail", episode %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+<% if current_user %>
+  <%= link_to "New Event", new_episode_path %>
+<% end %>
